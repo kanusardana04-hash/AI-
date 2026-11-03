@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudySphere – Smart Quiz Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Top navigation: brand + pill tabs (becomes a bottom bar on mobile) -->
+<header class="topbar">
+  <div class="brand"><span class="logo">◉</span> StudySphere</div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-page="dashboard"><i>▦</i><span>Dashboard</span></button>
+    <button class="tab" data-page="quiz"><i>✎</i><span>Quiz</span></button>
+    <button class="tab" data-page="notes"><i>❏</i><span>Study Material</span></button>
+    <button class="tab" data-page="writing"><i>✐</i><span>Writing</span></button>
+  </nav>
+</header>
+
+<main>
+  <!-- DASHBOARD -->
+  <section class="page active" id="page-dashboard">
+    <div class="hero">
+      <div>
+        <h1>Welcome back, learner</h1>
+        <p>Pick a topic, take an AI-made quiz, and watch your scores grow.</p>
+        <button class="btn light" data-go="quiz">Start a quiz</button>
+      </div>
+      <div class="ring" id="ring"><b id="ringText">0%</b><small>average</small></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><small>Quizzes completed</small><b id="statTotal">0</b></div>
+      <div class="stat"><small>Best score</small><b id="statBest">0%</b></div>
+      <div class="stat"><small>Average score</small><b id="statAvg">0%</b></div>
+    </div>
+    <div class="cols">
+      <div class="card"><h2>Recent quiz activity</h2><ul class="history" id="historyList"></ul>
+        <button class="link" id="clearHistory">Clear history</button></div>
+      <div class="card"><h2>Study progress</h2><div id="progressList"></div></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="page" id="page-quiz">
+    <div class="card">
+      <h2>AI quiz generator</h2>
+      <div class="form">
+        <label>Topic<input id="quizTopic" placeholder="e.g. Photosynthesis, Python loops"></label>
+        <label>Questions<select id="quizCount"><option>5</option><option>10</option><option>15</option></select></label>
+        <label>Difficulty<select id="quizLevel"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></label>
+        <button class="btn" id="quizGenerate">Generate quiz</button>
+      </div>
+      <div class="msg" id="quizMsg"></div>
+    </div>
+    <div id="quizArea"></div>
+  </section>
+
+  <!-- STUDY MATERIAL -->
+  <section class="page" id="page-notes">
+    <div class="card">
+      <h2>Study material</h2>
+      <div class="form two">
+        <label>Topic<input id="notesTopic" placeholder="e.g. Operating system scheduling"></label>
+        <button class="btn" id="notesGenerate">Generate notes</button>
+      </div>
+      <div class="msg" id="notesMsg"></div>
+    </div>
+    <div class="card output" id="notesOut" hidden></div>
+  </section>
+
+  <!-- WRITING TOOL -->
+  <section class="page" id="page-writing">
+    <div class="card">
+      <h2>Writing tool</h2>
+      <div class="form">
+        <label>Topic<input id="writeTopic" placeholder="e.g. Climate change"></label>
+        <label>Type<select id="writeType"><option value="essay">Essay</option><option value="summary">Summary</option><option value="explanation">Explanation</option></select></label>
+        <button class="btn" id="writeGenerate">Generate text</button>
+      </div>
+      <div class="msg" id="writeMsg"></div>
+    </div>
+    <div class="card output" id="writeOut" hidden></div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
